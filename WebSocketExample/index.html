@@ -1,0 +1,116 @@
+<html>
+<head>
+	<script src="./jquery-3.3.1.js"></script>
+	<link href="./style.css" rel="stylesheet">
+	<link rel="manifest" href="/manifest.json">
+</head>
+<body>
+<div class="all">
+	<div class="container1">
+	<button id="Btn1" class="button1 btn-scene" ></button>
+	<button id="Btn2" class="button2 btn-scene" ></button>
+	<button id="Btn3" class="button3 btn-scene" ></button>
+	<button id="Btn4" class="button4 btn-scene" ></button>
+	<button id="Btn5" class="button5 btn-scene" ></button>
+	</div>
+	<div class="container2">
+	<button id="Btn6" class="button6 btn-scene" ></button>
+	<button id="Btn7" class="button7 btn-scene" ></button>
+	<button id="Btn8" class="button8 btn-scene" ></button>
+	<button id="Btn9" class="button9 btn-scene" ></button>
+	<button id="Btn10" class="button10 btn-scene" ></button>
+	</div>
+</div>
+</body>
+</html>
+
+<script src="./sw.js"></script>
+<script>
+// Check that service workers are supported
+if ('serviceWorker' in navigator) {
+  // Use the window load event to keep the page load performant
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/service-worker.js');
+  });
+}
+</script>
+
+<script src="./WebSocketClient.js"></script>
+<script>
+	//var point = new Audio("Audio/points_1.mp3"); 
+	$('.btn-scene').bind('click', function(){
+		var point = new Audio("Audio/points_1.mp3"); 
+		point.play()
+	})
+	var ws = new WebSocketClient("ws://192.168.2.56:25600/MacaoCave");
+	$('#Btn1').bind('click', function(){
+		ws.Send(JSON.stringify({
+			"type": "play",
+			"data": "MCktv_Sc16_MagicWhale.avi"
+		}));
+	});
+  
+	$('#Btn2').bind('click', function(){
+		ws.Send(JSON.stringify({
+			"type": "play",
+			"data": "MCktv_Sc17_EgyptFantacy.avi"
+		}));
+	});
+  
+	$('#Btn3').bind('click', function(){
+		ws.Send(JSON.stringify({
+			"type": "play",
+			"data": "MCktv_Sc18_UniverseOcean.avi"
+		}));
+	});
+  
+	$('#Btn4').bind('click', function(){
+		ws.Send(JSON.stringify({
+			"type": "play",
+			"data": "MCktv_Sc19_HiTechSportcar.avi"
+		}));
+	});
+  
+	$('#Btn5').bind('click', function(){
+		ws.Send(JSON.stringify({
+			"type": "play",
+			"data": "MCktv_Sc20_HiTechSpace.avi"
+		}));
+	});
+  
+	$('#Btn6').bind('click', function(){
+		ws.Send(JSON.stringify({
+			"type": "play",
+			"data": "MCktv_Sc22_SkyCity.avi"
+		}));
+	});
+  
+	$('#Btn7').bind('click', function(){
+		ws.Send(JSON.stringify({
+			"type": "play",
+			"data": "MCktv_Sc23_MysteryPolar.avi"
+		}));
+	});
+  
+	$('#Btn8').bind('click', function(){
+		ws.Send(JSON.stringify({
+			"type": "play",
+			"data": "MCktv_Sc24_FloatIsland.avi"
+		}));
+	});
+  
+	$('#Btn9').bind('click', function(){
+		ws.Send(JSON.stringify({
+			"type": "play",
+			"data": "MCktv_Sc21_Atlantis.mp4"
+		}));
+	});
+	
+	$('#Btn10').bind('click', function(){
+		ws.Send(JSON.stringify({
+			"type": "playRandom"
+		}));
+	});
+  
+  
+</script>

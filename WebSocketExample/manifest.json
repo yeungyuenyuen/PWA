@@ -1,0 +1,23 @@
+{
+  "name": "Projection",
+  "short_name": "Projection",
+  "description": "Change Audio",
+  "start_url": "index.html",
+  "display": "fullscreen",
+  "background_color": "#FAFAFA",
+  "theme_color": "#00A7E5",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/Logo/192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/Logo/512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any maskable"
+    }
+  ]
+}
